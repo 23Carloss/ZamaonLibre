@@ -1,81 +1,85 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
     <head>
-        <title>Registro de usuarios</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        </head>
+        <link rel="stylesheet" href="./styles.css">
+        <meta name="viewport" content="width=device-width, initial-scale= 1.0">
+        <title>Zonama Libre</title>
+    </head>
     <body>
-        <nav>
-            <a href="./logIn.html">Iniciar sesion</a>
-            <a href="./inicio.html">Inicio</a>
-        </nav>
-           <h1>Registro de usuarios</h1>
-           <section>
-                <form name = "<form_nuevo_usuario" 
-                      emnctype="aplicactiom/x-www-from-urlencoded"
-                      action="/ejercicio01_aplicacionesWeb/Servlet03"
-                      method="post"
-                      >
-                    
-                    <div name ="titulo"">
-                        <h3> Nuevo usuario</h3>
-                        <span>Completa la informacion y envia tus datos</span> <br>
-                    </div>
-                    <br>
-                    <div name ="nombre">
-                        <label for="text_name">Nombre</label>
-                        <input id ="txt_name"  name="txt_name" type ="text">
-                        <span> Tu nombre completo</span>
-                    </div>
-                    <br>
-                    <div name ="Correo">
-                        <label for="txt_correo">Correo</label>
-                        <input id ="txt_correp"  name="txt_correo" type ="text">
-                        <span> Correo para recibir notificaciones</span>
-                    </div>
-                    <br>
-                    <div name ="Telefono">
-                        <label for="txt_tel">Telefono</label>
-                        <input id ="txt_tel"  name="txt_tel" type ="tel">
-                        <span> Telefono para recibir notificaciones</span>
-                    </div>
-                    <br>
-                    <div name ="Password">
-                        <label for="txt_pssw">Password</label>
-                        <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
-                        <span>Tu contraseña para iniciar sesion</span>
-                    </div>
-                    <br>
-                    <div name ="Pseudonimo">
-                        <label for="txt_pseudo">Pseudonomino</label>
-                        <input id ="txt_pseudo"  name="txt_pseudo" type ="text">
-                        <span>Tu nombre para identificarte con otros usuarios</span>
-                    </div>
-                    <br>
-                    <div name ="fechaNacimiento">
-                        <label for="txt_fechaNacimiento">Fecha Nacimiento</label>
-                        <input id ="txt_fechaNacimiento"  type ="date" name ="txt_fechaNacimiento" >
-                        <span> Tu fecha de Nacimiento </span>
-                    </div>
-                    <br>
-                    <div name ="Estado">
-                        <label for="txt_Estado">Estado</label> <br>
-                        <input id ="txt_Estado_Activo"  type ="radio" name="group" value="1" checked>
-                        <label for="txt_Estado_Activo">Activo</label> 
+        <div class = "layout">
+            <!--barra superior-->
+            <header class = "header">
+                
+                <div>Perfil</div>
+                <div>Cerrar sesion</div>
+            </header>
+            <!--menu lateral-->
+            <aside class="sidebar">
+                <a href="index.html">Inicio</a>
+                <a href="catalogo.html">Catalogo</a>
+                <a href="Carrito.html">Carrito</a>
+                <a href=".html">Pedidos</a>
+                <a href=".html">Administrador</a>
+                <a href="logIn.html">Iniciar sesion</a>
+
+            </aside>
+            <main class = "contenido">
+            <h1>Registro de usuarios</h1>
+            <section class = "ContenedorRegistro">
+                    <form>
                         
-                        <input id ="txt_Estado_Inactivo" W type ="radio" name="group" value="2">
-                        <label for="txt_Estado_Inactivo">Inactivo</label> 
+                        <div name ="titulo"">
+                            <h3> Nuevo usuario</h3>
+                            <span>Completa la informacion y envia tus datos</span> <br>
+                        </div>
+
+                        <div name ="nombre">
+                            <label for="text_name">Nombre</label>
+                            <input id ="txt_name"  name="txt_name" type ="text">
+                        </div>
+
+                        <div name ="Correo">
+                            <label for="txt_correo">Correo</label>
+                            <input id ="txt_correp"  name="txt_correo" type ="text">
+                        </div>
+
+                        <div name ="Telefono">
+                            <label for="txt_tel">Telefono</label>
+                            <input id ="txt_tel"  name="txt_tel" type ="tel">
+                        </div>
+
+                        <div name ="Password">
+                            <label for="txt_pssw">Password</label>
+                            <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
+                        </div>
+                        <div name ="Password">
+                            <label for="txt_pssw">Confirma tu contraseña</label>
+                            <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
+                        </div>
+                                                <div name ="Direccion de envio">
+                            <label for="txt_DireccionEnvio">Direccion de envio</label>
+                            <input id ="txt_pseudo"  name="txt_pseudo" type ="text">
+                        </div>
+
+                        <div name ="fechaNacimiento">
+                            <label for="txt_fechaNacimiento">Fecha Nacimiento</label>
+                            <input id ="txt_fechaNacimiento"  type ="date" name ="txt_fechaNacimiento" >
+                        </div>
+                        <div name ="numero de telefono">
+                            <label for="txt_telefono">Numero de telefono</label>
+                            <input id ="txt_telefono"  name="txt_telefono" type ="number">
+                        </div>
+                        <button name ="Btn_Clean">
+                            <a href="logIn.html">Completar registro</a>
+                        </button>
                         
-                        <input id ="txt_Estado_Pendiente"  type ="radio" name="group" value="3" >
-                        <label for="txt_Estado_Pendiente">Pendiente</label> 
-                    </div>
-                    <br>
-                    <div name ="Btn_Confirmar">
-                        <input id ="BtnConfirmar"  name="BtnConfirmar" type ="submit" value="Registrarse">
-                        <input id ="BtnClean"  name="BtnClean" type ="reset" value="Borrar datos">
-                    </div>
-                    <br>
                 </section>
+
+            </main>
+            <footer class = "footer">
+                Aplicaciones Web - Unidad 2
+            </footer>
+        </div>
+      
     </body>
 </html>

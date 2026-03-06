@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Zamaon Libre</title>
 
-        <body>`
+        <body>
         <div class = "layout">
             <!--barra superior-->
             <header class = "header">
@@ -17,8 +17,8 @@
             <!--menu lateral-->
             <aside class="sidebar">
                 <a href="index.html">Inicio</a>
-                <a href=".html">Catalogo</a>
-                <a href=".html">Carrito</a>
+                <a href="catalogo.html">Catalogo</a>
+                <a href="Carrito.html">Carrito</a>
                 <a href=".html">Pedidos</a>
                 <a href=".html">Administrador</a>
                 <a href="logIn.html">Iniciar sesion</a>
@@ -33,16 +33,60 @@
                     <button>Filtrar</button>
 
                 </section>
-                <section  class = "Catalogo">
-                    <div class="producto">
-                        <h3>Taladro 2000</h3>
-                        <p class = "precio">$2000</p>
-                        <div class = "acciones">
-                                <a href="producto.html">Detalles</a>
+            <table  class = "Catalogo">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <img src="Imagenes/taladro.webp" alt="Taladro">
+                        </td>
+                        <td>Taladro 2000</td>
+                        <td class ="precio">$2000</td>
+                        <td class = "acciones">
+                                <a href="DetallesTaladro.html">Detalles</a>
                                 <button>Agregar al Carrito</button>
-                        </div>
-                    </div>
-                </section>
+                                <button type="submit">
+                                    <a href="CreareseñasTaladro.html">Dejar Reseña</a>
+                                </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="Imagenes/images.jfif" alt="Audifonos">                        </td>
+                        <td>Audifonos A50</td>
+                        <td class ="precio">$3500</td>
+                        <td class = "acciones">
+                                <a href="DetallesAudifonos.html">Detalles</a>
+                                <button>Agregar al Carrito</button>
+                                <button type="submit">
+                                    <a href="CreareseñasAudifonos.html">Dejar Reseña</a>
+                                </button>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <img src="Imagenes/taladro.webp" alt="Taladro">
+                        </td>
+                        <td>Taladro 2000</td>
+                        <td class ="precio">$2000</td>
+                        <td class = "acciones">
+                                <a href="DetallesTaladro.html">Detalles</a>
+                                <button>Agregar al Carrito</button>
+                                <button type="submit">
+                                    <a href="CreareseñasTaladro.html">Dejar Reseña</a>
+                                </button>
+                        </td>
+                    </tr>
+                </tbody>
+                  
+            </table>
         </main>
             <footer class = "footer">
                 Aplicaciones Web - Unidad 2
