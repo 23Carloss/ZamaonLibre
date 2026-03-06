@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Registro de usuarios</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+    <body>
+        <nav>
+            <a href="./logIn.html">Iniciar sesion</a>
+            <a href="./inicio.html">Inicio</a>
+        </nav>
+           <h1>Registro de usuarios</h1>
+           <section>
+                <form name = "<form_nuevo_usuario" 
+                      emnctype="aplicactiom/x-www-from-urlencoded"
+                      action="/ejercicio01_aplicacionesWeb/Servlet03"
+                      method="post"
+                      >
+                    
+                    <div name ="titulo"">
+                        <h3> Nuevo usuario</h3>
+                        <span>Completa la informacion y envia tus datos</span> <br>
+                    </div>
+                    <br>
+                    <div name ="nombre">
+                        <label for="text_name">Nombre</label>
+                        <input id ="txt_name"  name="txt_name" type ="text">
+                        <span> Tu nombre completo</span>
+                    </div>
+                    <br>
+                    <div name ="Correo">
+                        <label for="txt_correo">Correo</label>
+                        <input id ="txt_correp"  name="txt_correo" type ="text">
+                        <span> Correo para recibir notificaciones</span>
+                    </div>
+                    <br>
+                    <div name ="Telefono">
+                        <label for="txt_tel">Telefono</label>
+                        <input id ="txt_tel"  name="txt_tel" type ="tel">
+                        <span> Telefono para recibir notificaciones</span>
+                    </div>
+                    <br>
+                    <div name ="Password">
+                        <label for="txt_pssw">Password</label>
+                        <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
+                        <span>Tu contraseña para iniciar sesion</span>
+                    </div>
+                    <br>
+                    <div name ="Pseudonimo">
+                        <label for="txt_pseudo">Pseudonomino</label>
+                        <input id ="txt_pseudo"  name="txt_pseudo" type ="text">
+                        <span>Tu nombre para identificarte con otros usuarios</span>
+                    </div>
+                    <br>
+                    <div name ="fechaNacimiento">
+                        <label for="txt_fechaNacimiento">Fecha Nacimiento</label>
+                        <input id ="txt_fechaNacimiento"  type ="date" name ="txt_fechaNacimiento" >
+                        <span> Tu fecha de Nacimiento </span>
+                    </div>
+                    <br>
+                    <div name ="Estado">
+                        <label for="txt_Estado">Estado</label> <br>
+                        <input id ="txt_Estado_Activo"  type ="radio" name="group" value="1" checked>
+                        <label for="txt_Estado_Activo">Activo</label> 
+                        
+                        <input id ="txt_Estado_Inactivo" W type ="radio" name="group" value="2">
+                        <label for="txt_Estado_Inactivo">Inactivo</label> 
+                        
+                        <input id ="txt_Estado_Pendiente"  type ="radio" name="group" value="3" >
+                        <label for="txt_Estado_Pendiente">Pendiente</label> 
+                    </div>
+                    <br>
+                    <div name ="Btn_Confirmar">
+                        <input id ="BtnConfirmar"  name="BtnConfirmar" type ="submit" value="Registrarse">
+                        <input id ="BtnClean"  name="BtnClean" type ="reset" value="Borrar datos">
+                    </div>
+                    <br>
+                </section>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Iniciar sesion</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <section>
+                <form name = "<form_nuevo_usuario" 
+                      emnctype="aplicactiom/x-www-from-urlencoded"
+                      action="/EjemploJavaEE/Usuarios"
+                      method="post"
+                      >
+                    <br>
+                    <div name ="titulo"">
+                        <h3> Inicia Sesion</h3>
+                        <span>Completa la informacion y envia tus datos</span>
+                    </div>
+                    <br>
+                    <div name ="Correo">
+                        <label for="txt_correo">Correo</label>
+                        <input id ="txt_correp"  name="txt_correo" type ="text">
+                        <span> Correo de usuario</span>
+                    </div>
+                    <br>
+                    <div name ="Password">
+                        <label for="txt_pssw">Password</label>
+                        <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
+                        <span>Tu contraseña de usuario</span>
+                    </div>
+                    <br>
+                    <div name ="Btn_Confirmar">
+                        <input id ="BtnConfirmar"  name="BtnConfirmar" type ="submit" value="Registrarse">
+                        <input id ="BtnClean"  name="BtnClean" type ="reset" value="Borrar">
+                    </div>
+                    <br>
+                    <a href="registro.html">Registro</a>
+                    
+                    <a href=" index.html">Inicio</a>
+
+                </form>
+        </section>
+    </body>
+</html>
