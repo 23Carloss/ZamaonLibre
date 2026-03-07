@@ -248,6 +248,10 @@ body{
     padding: 10px;
 
 }
+.Separador td{
+    border-top: 2px solid black;
+    height: 10px;
+}
 
 
 

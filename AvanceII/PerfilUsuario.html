@@ -10,7 +10,7 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <div>Perfil</div>
+                <a href="PerfilUsuario.html">Perfil</a>
                 <div>Cerrar sesion</div>
             </header>
             <!--menu lateral-->
@@ -24,8 +24,7 @@
 
             </aside>
             <main class = "contenido">
-            <h1>Registro de usuarios</h1>
-            <section class = "ContenedorRegistro">
+                 <section class = "ContenedorRegistro">
                     <form>
                         
                         <div name ="titulo"">
@@ -35,42 +34,40 @@
 
                         <div name ="nombre">
                             <label for="text_name">Nombre</label>
-                            <input id ="txt_name"  name="txt_name" type ="text">
+                            <input id ="txt_name"  name="txt_name" type ="text" value="Luis Carlos M">
                         </div>
 
                         <div name ="Correo">
                             <label for="txt_correo">Correo</label>
-                            <input id ="txt_correp"  name="txt_correo" type ="text">
+                            <input id ="txt_correp"  name="txt_correo" type ="email" value="carlos@.outlook.es" >
                         </div>
 
                         <div name ="Telefono">
                             <label for="txt_tel">Telefono</label>
-                            <input id ="txt_tel"  name="txt_tel" type ="tel">
+                            <input id ="txt_tel"  name="txt_tel" type ="number" value="865443253">
                         </div>
 
                         <div name ="Password">
                             <label for="txt_pssw">Password</label>
-                            <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
+                            <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried value="carlitos">
                         </div>
                         <div name ="Password">
                             <label for="txt_pssw">Confirma tu contraseña</label>
-                            <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
+                            <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried value="carlitos">
                         </div>
-                                                <div name ="Direccion de envio">
+                        <div name ="Direccion de envio">
                             <label for="txt_DireccionEnvio">Direccion de envio</label>
-                            <input id ="txt_pseudo"  name="txt_pseudo" type ="text">
+                            <input id ="txt_pseudo"  name="txt_pseudo" type ="text" value="Plaza sesamo 2016">
                         </div>
 
                         <div name ="fechaNacimiento">
                             <label for="txt_fechaNacimiento">Fecha Nacimiento</label>
                             <input id ="txt_fechaNacimiento"  type ="date" name ="txt_fechaNacimiento" >
                         </div>
-                    
-                        <button name ="Btn_Completar">
-                            <a href="logIn.html">Completar registro</a>
-                        </button>
                         
-                </section>
+                        <button name ="Btn_Clean">
+                            <a href="logIn.html">Guardar Cambios</a>
+                        </button>
 
             </main>
             <footer class = "footer">
