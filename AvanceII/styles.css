@@ -15,7 +15,7 @@ body{
     grid-template-areas: "header header"
                         "sidebar contenido"
                         "footer footer";
-    height: 30vh;
+    height: 100vh;
 }
 .header{
     grid-area: header;
@@ -66,6 +66,19 @@ body{
     padding: 10px;
     text-align: center;
 }
+.Filtros{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+}
+.Filtros button{
+    cursor:pointer;
+    background: rgb(53, 124, 172);
+    color: white;
+    font-size: medium;
+    border: none;
+    padding: 10px;
+}
 .Caracteristicas{
     width: 100%;
     margin-top: 20px;
@@ -106,12 +119,12 @@ body{
     gap: 10px;
 }
 .acciones button{
-    background-color: rgb(180, 180, 205);
-    border: none;
-    padding: 5px 10px;
-    margin-left: 10px;
-    cursor: pointer;
+    cursor:pointer;
+    background: rgb(53, 124, 172);
+    color: white;
     font-size: medium;
+    border: none;
+    padding: 10px;
 }
 .acciones a{
     text-decoration: none;
@@ -139,12 +152,12 @@ body{
 
 }
 .contenedorInicioSesion button{
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    width: 20%;
     cursor:pointer;
+    background: rgb(53, 124, 172);
+    color: white;
     font-size: medium;
+    border: none;
+    padding: 10px;
 
 }
 .ContenedorRegistro div{
@@ -156,13 +169,12 @@ body{
     
 }
 .ContenedorRegistro button{
-    display: flex;
-    flex-direction: column;
-    border: none;
-    margin: 10px;
-    width: 20%;
     cursor:pointer;
+    background: rgb(53, 124, 172);
+    color: white;
     font-size: medium;
+    border: none;
+    padding: 10px;
     
 }
 .reseña{
@@ -252,6 +264,24 @@ body{
     border-top: 2px solid black;
     height: 10px;
 }
+
+.agregarProducto{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    gap: 20px;
+}
+
+.agregarProducto button{
+    cursor:pointer;
+    background: rgb(53, 124, 172);
+    color: white;
+    font-size: medium;
+    align-items: center;
+    border: none;
+    padding: 10px;
+}
+
 
 
 
