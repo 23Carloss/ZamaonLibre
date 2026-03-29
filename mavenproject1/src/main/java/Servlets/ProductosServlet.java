@@ -5,7 +5,6 @@
 package Servlets;
 
 import DAO.ProductoDAO;
-import Modelos.Acciones;
 import Modelos.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,6 +13,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -60,7 +60,21 @@ public class ProductosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+          
+        String accion = request.getParameter("accion");
+        ProductoDAO dao = new ProductoDAO();
+            if(accion.equals("seleccionar")){
+                int id =  Integer.parseInt(request.getParameter("id"));
+                Producto seleccion = dao.obtenerPorId(id);
+                HttpSession session = request.getSession();
+                session.setAttribute("producto", seleccion);
+                request.getRequestDispatcher("/Admin/EditarProducto.jsp").forward(request, response);
+            
+            }else if(accion.equals("eliminar")){
+                dao.eliminar(Integer.parseInt(request.getParameter("id")));
+                response.sendRedirect(request.getContextPath()+"/CatalogoServlet?accion=admin");
+            }
+        
     }
 
     /**
@@ -90,7 +104,7 @@ public class ProductosServlet extends HttpServlet {
             
             producto.setNombre(nombre); producto.setPrecio(precio); producto.setDescripcion(descripcion); producto.setStock(stock) ; producto.setImagen(urlImagen);
             dao.crear(producto);
-            response.sendRedirect(request.getContextPath() + "/CatalogoServlet?accion=admin");
+            request.getRequestDispatcher("/CatalogoServlet?accion=admin").forward(request, response);
         }
         else if(accion.equals("editar")){
             
@@ -100,9 +114,13 @@ public class ProductosServlet extends HttpServlet {
             productoEditado.setPrecio(Integer.parseInt(request.getParameter("precio")));
             productoEditado.setDescripcion(request.getParameter("descripcion"));
             productoEditado.setStock(Integer.parseInt(request.getParameter("stock")));
+            productoEditado.setImagen(request.getParameter("imagen"));
             
+            dao.actualizar(productoEditado);
             
+            response.sendRedirect(request.getContextPath()+"/CatalogoServlet?accion=admin");
         }
+         
         
         
         

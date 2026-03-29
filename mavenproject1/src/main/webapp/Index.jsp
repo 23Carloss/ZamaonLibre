@@ -23,11 +23,11 @@
             <!--menu lateral-->
             <aside class="sidebar">
                 <a href="index.jsp">Inicio</a>
-                <a href="CatalogoServlet">Catalogo</a>
-                <a href="Carrito.jsp">Carrito</a>
-                <a href="Pedidos.jsp">Pedidos</a>
-                <a href="Administrador.jsp">Administrador</a> <!--Mandarlo al servlet de admin-->
-                <a href="logIn.jsp">Iniciar sesion</a>
+                <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=usuario">Catalogo</a>
+                <a href="<%= request.getContextPath()%>/Carrito.jsp">Carrito</a>
+                <a href="<%= request.getContextPath()%>/Pedidos.jsp">Pedidos</a>
+                <a href="<%= request.getContextPath()%>/AdministradorServlet?accion=usuario">Administrador</a> <!--Mandarlo al servlet de admin-->
+                <a href="<%= request.getContextPath()%>/logIn.jsp">Iniciar sesion</a>
 
             </aside>
             <main class = "contenido">

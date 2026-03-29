@@ -86,10 +86,11 @@ public class AdministradorServlet extends HttpServlet {
 
             if(dao.iniciarSesion(CorreoE, password)){
                 request.getSession().setAttribute("admin", CorreoE);
-                response.sendRedirect(request.getContextPath()+"/Admin/Administrador.jsp");
+                request.getRequestDispatcher("/Admin/Administrador.jsp").forward(request, response);
+                
             }
             else{
-                response.sendRedirect("logIn.jsp");
+                request.getRequestDispatcher("/logIn.jsp").forward(request, response);
             }
         }
         

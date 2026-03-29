@@ -66,10 +66,10 @@ public class CatalogoServlet extends HttpServlet {
         List<Producto> lista = dao.obtenerTodos();
         request.setAttribute("productos", lista);
         if("admin".equals(accion)){
-            request.getRequestDispatcher("Admin/administracionCatalogo.jsp").forward(request, response);
+            request.getRequestDispatcher("/Admin/administracionCatalogo.jsp").forward(request, response);
 
         }else{
-            request.getRequestDispatcher(request.getContextPath() +"/catalogo.jsp").forward(request, response);
+            request.getRequestDispatcher("/catalogo.jsp").forward(request, response);
 
         }
             
@@ -86,7 +86,18 @@ public class CatalogoServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String accion = request.getParameter("accion");
+        ProductoDAO dao = new ProductoDAO();
+        
+        List<Producto> lista = dao.obtenerTodos();
+        request.setAttribute("productos", lista);
+        if("admin".equals(accion)){
+            request.getRequestDispatcher("Admin/administracionCatalogo.jsp").forward(request, response);
+
+        }else if("usuario".equals(accion)){
+            request.getRequestDispatcher("/catalogo.jsp").forward(request, response);
+
+        }
     }
 
     /**

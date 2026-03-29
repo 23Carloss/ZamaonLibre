@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+    <%String admin = (String) session.getAttribute("admin"); 
+    %>
     <head>
         <link rel="stylesheet" href="./styles.css">
         <meta name="viewport" content="width=device-width, initial-scale= 1.0">
@@ -10,8 +12,8 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <div a href="PerfilUsuario.jsp">Perfil</div>
-                <div>Cerrar sesion</div>
+                <a href="<%= request.getContextPath()%>/PerfilUsuario.jsp">Bienvenido <%= admin %></a>
+                <a href="<%= request.getContextPath()%>/AdministradorServlet?accion=logout"></a>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">

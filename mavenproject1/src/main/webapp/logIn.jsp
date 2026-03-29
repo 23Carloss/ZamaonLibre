@@ -26,7 +26,7 @@
             <main class = "contenido">
                 <section class ="contenedorInicioSesion">
 
-                    <form action ="AdministradorServlet" method="post">
+                    <form action ="<%= request.getContextPath()%>/AdministradorServlet" method="post">
                         <input type="hidden" name="accion" value="logIn">  
                     <br>
                     <div name ="titulo"">

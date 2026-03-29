@@ -5,6 +5,7 @@
 
 package DAO;
 
+import Modelos.Administrador;
 import conexionBD.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -15,7 +16,8 @@ import java.sql.ResultSet;
  * @author $Luis Carlos Manjarrez Gonzalez
  */
 public class AdministradorDAO {
-
+    private Administrador administradorLoggeado;
+    
     public AdministradorDAO() {
     
     }
@@ -40,5 +42,14 @@ public class AdministradorDAO {
         return validacion;
                 
     } 
+    
+    public void setAdmin(Administrador admin){
+        administradorLoggeado =admin;
+    }
+
+    public Administrador getAdministradorLoggeado() {
+        return administradorLoggeado;
+    }
+    
 
 }

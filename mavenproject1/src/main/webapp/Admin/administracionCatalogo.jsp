@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <%@page import= "java.util.*,  Modelos.Producto, DAO.ProductoDAO"  %>
 <html lang="es">
+    <% HttpSession sesion = request.getSession(); 
+           String admin = (String) sesion.getAttribute("admin");
+        Producto productoSeleccionado = (Producto)request.getAttribute("producto");
+    
+    
+    %>
+      
+        
     <head>
         <link rel="stylesheet" href="./styles.css">
         <meta name="viewport" content="width=device-width, initial-scale= 1.0">
@@ -11,16 +19,16 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <div a href="PerfilUsuario.jsp">Perfil</div>
-                <a href="AdministradorServlet?accion=logout">Cerrar sesión</a>
+                <a href="<%= request.getContextPath()%>/PerfilUsuario.jsp">Bienvenido <%= admin %></a>
+                <a href="<%= request.getContextPath()%>/AdministradorServlet?accion=logout"></a>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
                 <a href="<%= request.getContextPath() %>/index.jsp">Inicio</a>
-                <a href="<%= request.getContextPath() %>/CatalogoServlet">Catalogo</a>
+                <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=admin">Catalogo</a>
                 <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
                 <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
-                <a href="<%= request.getContextPath() %>/Administrador.jsp">Administrador</a>
+                <a href="<%= request.getContextPath() %>/Admin/Administrador.jsp">Administrador</a>
                 <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
             </aside>
@@ -60,12 +68,12 @@
                         <td><%= p.getNombre() %></td>
                         <td class ="precio"><%= p.getPrecio() %></td>
                         <td class = "acciones">
-                                <a href="<%= request.getContextPath() %>/Admin/EditarProducto.jsp">
+                                <a href="<%= request.getContextPath() %>/ProductosServlet?accion=seleccionar&id=<%= p.getId() %>">
                                     <button>
                                     Editar producto
                                 </button></a>
-                                <a href= "ProductosServlet?accion=eliminar&id=<%= p.getId()%>" >
-                                <button>
+                                <a href= "<%= request.getContextPath() %>/ProductosServlet?accion=eliminar&id=<%= p.getId()%>" >
+                                    <button type="submit">
                                    Eliminar producto
                                 </button>
                                 </a>

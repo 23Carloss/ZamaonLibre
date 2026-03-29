@@ -39,7 +39,8 @@ public class ProductoDAO implements Crud<Producto>{
                            p.setNombre(rs.getString("nombre"));
                            p.setPrecio(rs.getInt("precio"));
                            p.setStock(rs.getInt("stock"));
-                           p.setStock(rs.getInt("stock"));
+                           p.setDescripcion(rs.getString("descripcion"));
+                           p.setImagen(rs.getString("URLImagen"));
                        
                        lista.add(p);
                    }
@@ -83,13 +84,14 @@ public class ProductoDAO implements Crud<Producto>{
     public void actualizar(Producto obj) {
         try{
             PreparedStatement ps = con.prepareStatement(
-                "UPDATE productos SET nombre=?, precio=?, stock=? descripcion = ? WHERE id=?"
+                "UPDATE productos SET URLImagen =?, nombre=?, precio=?, stock=?, descripcion = ? WHERE id=?"
             );
-            ps.setString(1, obj.getNombre());
-            ps.setInt(2, obj.getPrecio());
-            ps.setInt(3, obj.getStock());
-            ps.setInt(5, obj.getId());
-            ps.setString(4, obj.getDescripcion());
+            ps.setString(1, obj.getImagen());
+            ps.setString(2, obj.getNombre());
+            ps.setInt(3, obj.getPrecio());
+            ps.setInt(4, obj.getStock());
+            ps.setInt(6, obj.getId());
+            ps.setString(5, obj.getDescripcion());
                     
             ps.executeUpdate();
         }catch(Exception e){
@@ -114,6 +116,7 @@ public class ProductoDAO implements Crud<Producto>{
                     p.setPrecio(rs.getInt("precio"));
                     p.setStock(rs.getInt("stock"));
                     p.setImagen(rs.getString("URLImagen"));
+                    p.setDescripcion(rs.getString("descripcion"));
                
             }
         }catch(Exception e){

@@ -20,7 +20,7 @@
             <!--menu lateral-->
             <aside class="sidebar">
                 <a href="index.jsp">Inicio</a>
-                <a href="<%= request.getContextPath() %>/CatalogoServlet">Catalogo</a>
+                <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=usuario">Catalogo</a>
                 <a href="Carrito.jsp">Carrito</a>
                 <a href="Pedidos.jsp">Pedidos</a>
                 <a href="Administrador.jsp">Administrador</a>
@@ -53,7 +53,9 @@
                      %>
                     <tr>
                         <td>
-                            <img src="<%= p.getImagen()%>">
+                            <div class="contenedorImagen">
+                                <img src="<%= p.getImagen()%>">
+                            </div>
                         </td>
                         <td><%= p.getNombre() %></td>
                         <td class ="precio"><%= p.getPrecio() %></td>
