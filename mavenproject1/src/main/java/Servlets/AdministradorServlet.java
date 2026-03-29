@@ -4,9 +4,7 @@
  */
 package Servlets;
 
-import DAO.ProductoDAO;
-import Modelos.Acciones;
-import Modelos.Producto;
+import DAO.AdministradorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -19,8 +17,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author HP
  */
-@WebServlet(name = "ProductosServlet", urlPatterns = {"/ProductosServlet"})
-public class ProductosServlet extends HttpServlet {
+@WebServlet(name = "AdministradorServlet", urlPatterns = {"/AdministradorServlet"})
+public class AdministradorServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +37,10 @@ public class ProductosServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductosServlet</title>");
+            out.println("<title>Servlet AdministradorServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductosServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet AdministradorServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +58,12 @@ public class ProductosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String accion = request.getParameter("accion");
+        
+        if("logout".equals(accion)){
+            request.getSession().invalidate();
+            response.sendRedirect("logIn.jsp");
+        }
     }
 
     /**
@@ -74,36 +77,21 @@ public class ProductosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-
         String accion = request.getParameter("accion");
-        ProductoDAO dao = new ProductoDAO();
-        if(accion.equals("agregar")){
-            Producto producto =new Producto();         
-            String urlImagen = request.getParameter("imagen");
-            String nombre = request.getParameter("nombre");
-            String StringPrecio = request.getParameter("precio");
-            int precio = Integer.parseInt(StringPrecio);
-            String descripcion = request.getParameter("descripcion");
-            String StringStock = request.getParameter("stock");
-            int stock = Integer.parseInt(StringStock);
-            
-            producto.setNombre(nombre); producto.setPrecio(precio); producto.setDescripcion(descripcion); producto.setStock(stock) ; producto.setImagen(urlImagen);
-            dao.crear(producto);
-            response.sendRedirect(request.getContextPath() + "/CatalogoServlet?accion=admin");
-        }
-        else if(accion.equals("editar")){
-            
-            Producto productoEditado = new Producto();
-            productoEditado.setId(Integer.parseInt(request.getParameter("id")));
-            productoEditado.setNombre(request.getParameter("nombre"));
-            productoEditado.setPrecio(Integer.parseInt(request.getParameter("precio")));
-            productoEditado.setDescripcion(request.getParameter("descripcion"));
-            productoEditado.setStock(Integer.parseInt(request.getParameter("stock")));
-            
-            
-        }
         
+        if("logIn".equals(accion)){
+            String CorreoE = request.getParameter("txt_correo");
+            String password =  request.getParameter("txt_password");
+            AdministradorDAO dao = new AdministradorDAO();
+
+            if(dao.iniciarSesion(CorreoE, password)){
+                request.getSession().setAttribute("admin", CorreoE);
+                response.sendRedirect(request.getContextPath()+"/Admin/Administrador.jsp");
+            }
+            else{
+                response.sendRedirect("logIn.jsp");
+            }
+        }
         
         
     }

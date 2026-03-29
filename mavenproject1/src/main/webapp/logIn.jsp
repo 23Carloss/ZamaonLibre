@@ -11,12 +11,12 @@
             <header class = "header">
                 
                 <div>Perfil</div>
-                <div>Cerrar sesion</div>
+                <a href="AdminServlet?accion=logout">Cerrar sesión</a>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
                 <a href="index.jsp">Inicio</a>
-                <a href="catalogo.jsp">Catalogo</a>
+                <a href="CatalagoServlet">Catalogo</a>
                 <a href="Carrito.jsp">Carrito</a>
                 <a href="Pedidos.jsp">Pedidos</a>
                 <a href="Administrador.jsp">Administrador</a>
@@ -26,7 +26,8 @@
             <main class = "contenido">
                 <section class ="contenedorInicioSesion">
 
-                    <form action ="LogInServlet" method="post">
+                    <form action ="AdministradorServlet" method="post">
+                        <input type="hidden" name="accion" value="logIn">  
                     <br>
                     <div name ="titulo"">
                         <h3> Inicia Sesion</h3>
@@ -35,21 +36,19 @@
                     <br>
                     <div name ="Correo">
                         <label for="txt_correo">Correo de usuario</label>
-                        <input id ="txt_correp"  name="txt_correo" type ="text">
+                        <input id ="txt_correo"  name="txt_correo" type ="text">
                     </div>
                     <br>
                     <div name ="Password">
                         <label for="txt_pssw">Password</label>
-                        <input id ="txt_pssw"  name="txt_password" type ="password" requeried>
+                        <input id ="txt_pssw"  name="txt_password" type ="password" required>
                     </div>
                     <br>
                     <button name ="Btn_Confirmar">
                        Log In
                         
                     </button>
-                    <button name ="Btn_Registro">
                         <a href="registro.jsp">Registro</a>                       
-                    </button>
                 </form>
         </section>
 

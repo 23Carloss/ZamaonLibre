@@ -10,6 +10,8 @@ import Modelos.Producto;
 import conexionBD.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,13 +27,40 @@ public class ProductoDAO implements Crud<Producto>{
 
     @Override
     public List obtenerTodos() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        List<Producto> lista = new ArrayList<>();
+
+               try{
+                   PreparedStatement ps = con.prepareStatement("SELECT * FROM productos");
+                   ResultSet rs = ps.executeQuery();
+
+                   while(rs.next()){
+                       Producto p = new Producto();
+                           p.setId(rs.getInt("id"));
+                           p.setNombre(rs.getString("nombre"));
+                           p.setPrecio(rs.getInt("precio"));
+                           p.setStock(rs.getInt("stock"));
+                           p.setStock(rs.getInt("stock"));
+                       
+                       lista.add(p);
+                   }
+               }catch(Exception e){
+                   System.out.println(e.getLocalizedMessage());
+               }
+               return lista;    
     }
 
 
     @Override
     public void eliminar(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        try{
+            PreparedStatement ps = con.prepareStatement(
+                "DELETE FROM productos WHERE id=?"
+            );
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        }catch(Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }    
     }
 
     @Override
@@ -52,12 +81,45 @@ public class ProductoDAO implements Crud<Producto>{
 
     @Override
     public void actualizar(Producto obj) {
-        
+        try{
+            PreparedStatement ps = con.prepareStatement(
+                "UPDATE productos SET nombre=?, precio=?, stock=? descripcion = ? WHERE id=?"
+            );
+            ps.setString(1, obj.getNombre());
+            ps.setInt(2, obj.getPrecio());
+            ps.setInt(3, obj.getStock());
+            ps.setInt(5, obj.getId());
+            ps.setString(4, obj.getDescripcion());
+                    
+            ps.executeUpdate();
+        }catch(Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }
     }
 
     @Override
     public Producto obtenerPorId(int id) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        Producto p = null;
+        try{
+            PreparedStatement ps = con.prepareStatement(
+                "SELECT * FROM productos WHERE id=?"
+            );
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+
+            if(rs.next()){
+                p = new Producto();
+                    p.setId(rs.getInt("id"));
+                    p.setNombre(rs.getString("nombre"));
+                    p.setPrecio(rs.getInt("precio"));
+                    p.setStock(rs.getInt("stock"));
+                    p.setImagen(rs.getString("URLImagen"));
+               
+            }
+        }catch(Exception e){
+            System.out.println(e.getLocalizedMessage());
+        }
+        return p;    
     }
 
 }

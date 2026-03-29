@@ -5,7 +5,6 @@
 package Servlets;
 
 import DAO.ProductoDAO;
-import Modelos.Acciones;
 import Modelos.Producto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,13 +13,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
-@WebServlet(name = "ProductosServlet", urlPatterns = {"/ProductosServlet"})
-public class ProductosServlet extends HttpServlet {
+@WebServlet(name = "CatalogoServlet", urlPatterns = {"/CatalogoServlet"})
+public class CatalogoServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -39,10 +39,10 @@ public class ProductosServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ProductosServlet</title>");
+            out.println("<title>Servlet CatalogoServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ProductosServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet CatalogoServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,7 +60,19 @@ public class ProductosServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        String accion = request.getParameter("accion");
+        ProductoDAO dao = new ProductoDAO();
+        
+        List<Producto> lista = dao.obtenerTodos();
+        request.setAttribute("productos", lista);
+        if("admin".equals(accion)){
+            request.getRequestDispatcher("Admin/administracionCatalogo.jsp").forward(request, response);
+
+        }else{
+            request.getRequestDispatcher(request.getContextPath() +"/catalogo.jsp").forward(request, response);
+
+        }
+            
     }
 
     /**
@@ -74,38 +86,7 @@ public class ProductosServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-
-        String accion = request.getParameter("accion");
-        ProductoDAO dao = new ProductoDAO();
-        if(accion.equals("agregar")){
-            Producto producto =new Producto();         
-            String urlImagen = request.getParameter("imagen");
-            String nombre = request.getParameter("nombre");
-            String StringPrecio = request.getParameter("precio");
-            int precio = Integer.parseInt(StringPrecio);
-            String descripcion = request.getParameter("descripcion");
-            String StringStock = request.getParameter("stock");
-            int stock = Integer.parseInt(StringStock);
-            
-            producto.setNombre(nombre); producto.setPrecio(precio); producto.setDescripcion(descripcion); producto.setStock(stock) ; producto.setImagen(urlImagen);
-            dao.crear(producto);
-            response.sendRedirect(request.getContextPath() + "/CatalogoServlet?accion=admin");
-        }
-        else if(accion.equals("editar")){
-            
-            Producto productoEditado = new Producto();
-            productoEditado.setId(Integer.parseInt(request.getParameter("id")));
-            productoEditado.setNombre(request.getParameter("nombre"));
-            productoEditado.setPrecio(Integer.parseInt(request.getParameter("precio")));
-            productoEditado.setDescripcion(request.getParameter("descripcion"));
-            productoEditado.setStock(Integer.parseInt(request.getParameter("stock")));
-            
-            
-        }
-        
-        
-        
+        processRequest(request, response);
     }
 
     /**

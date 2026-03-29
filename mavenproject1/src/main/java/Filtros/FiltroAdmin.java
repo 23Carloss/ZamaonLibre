@@ -20,7 +20,7 @@ import java.io.IOException;
  *
  * @author $Luis Carlos Manjarrez Gonzalez
  */
-@WebFilter("/admin/*")
+@WebFilter("/Admin/*")
 public class FiltroAdmin implements Filter {
 
     @Override

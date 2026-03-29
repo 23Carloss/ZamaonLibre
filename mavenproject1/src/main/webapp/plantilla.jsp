@@ -11,7 +11,7 @@
             <header class = "header">
                 
                 <div a href="PerfilUsuario.jsp">Perfil</div>
-                <div>Cerrar sesion</div>
+                <a href="AdminServlet?accion=logout">Cerrar sesión</a>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">

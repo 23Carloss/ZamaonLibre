@@ -18,12 +18,12 @@
             <header class = "header">
                 
                 <a href="PerfilUsuario.jsp">Perfil</a>
-                <div>Cerrar sesion</div>
+                <a href="AdminServlet?accion=logout">Cerrar sesión</a>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
                 <a href="index.jsp">Inicio</a>
-                <a href="catalogo.jsp">Catalogo</a>
+                <a href="CatalogoServlet">Catalogo</a>
                 <a href="Carrito.jsp">Carrito</a>
                 <a href="Pedidos.jsp">Pedidos</a>
                 <a href="Administrador.jsp">Administrador</a> <!--Mandarlo al servlet de admin-->

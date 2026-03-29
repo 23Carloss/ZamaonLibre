@@ -79,7 +79,7 @@ public class LogInServlet extends HttpServlet {
         
         if(dao.iniciarSesion(CorreoE, password)){
             request.getSession().setAttribute("admin", CorreoE);
-            response.sendRedirect("Administrador.jsp");
+            response.sendRedirect("/Admin/Administrador.jsp");
         }
         else{
             response.sendRedirect("logIn.jsp");

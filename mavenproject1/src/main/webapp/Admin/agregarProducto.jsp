@@ -25,8 +25,9 @@
             </aside>
             <main class = "contenido">
             <div class="agregarProducto">
-                <form action="ProductosServlet" method="POST" >
+                <form action="<%= request.getContextPath() %>/ProductosServlet" method="POST" >
                     <input type="hidden" name="accion" value="agregar">
+                    
                     <label for="imagen">Sube la imagen del producto</label>
                     <input id="imagen" type="text" name="imagen">
 
@@ -44,7 +45,7 @@
 
                     <button type="submit">Añadir producto</button>
 
-                    <a href="administracionCatalago.jsp" class="btn-cancelar">Cancelar</a>
+                    <a href="<%= request.getContextPath() %>/Admin/administracionCatalago.jsp" class="btn-cancelar">Cancelar</a>
 
                 </form>
             </div>

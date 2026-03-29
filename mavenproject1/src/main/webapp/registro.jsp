@@ -11,7 +11,7 @@
             <header class = "header">
                 
                 <div>Perfil</div>
-                <div>Cerrar sesion</div>
+                <a href="AdminServlet?accion=logout">Cerrar sesión</a>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
@@ -26,7 +26,7 @@
             <main class = "contenido">
             <h1>Registro de usuarios</h1>
             <section class = "ContenedorRegistro">
-                    <form>
+                    <form >
                         
                         <div name ="titulo"">
                             <h3> Nuevo usuario</h3>
@@ -56,7 +56,7 @@
                             <label for="txt_pssw">Confirma tu contraseÃ±a</label>
                             <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
                         </div>
-                                                <div name ="Direccion de envio">
+                        <div name ="Direccion de envio">
                             <label for="txt_DireccionEnvio">Direccion de envio</label>
                             <input id ="txt_pseudo"  name="txt_pseudo" type ="text">
                         </div>
