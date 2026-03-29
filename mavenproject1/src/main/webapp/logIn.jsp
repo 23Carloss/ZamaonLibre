@@ -15,12 +15,12 @@
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
-                <a href="index.jsp">Inicio</a>
-                <a href="CatalagoServlet">Catalogo</a>
-                <a href="Carrito.jsp">Carrito</a>
-                <a href="Pedidos.jsp">Pedidos</a>
-                <a href="Administrador.jsp">Administrador</a>
-                <a href="logIn.jsp">Iniciar sesion</a>
+                <a href="<%= request.getContextPath() %>/index.jsp">Inicio</a>
+                <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=user">Catalogo</a>
+                <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
+                <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
+                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=user.jsp">Administrador</a>
+                <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
             </aside>
             <main class = "contenido">

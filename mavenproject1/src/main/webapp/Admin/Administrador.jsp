@@ -21,7 +21,7 @@
                 <a href="<%= request.getContextPath() %>/CatalogoServlet">Catalogo</a>
                 <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
                 <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
-                <a href="<%= request.getContextPath() %>Administrador.jsp">Administrador</a>
+                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=admin">Administrador</a>
                 <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
             </aside>
@@ -29,10 +29,10 @@
                 <section class="PanelAdmin">
                     <h1>Panel administrador</h1>
                     <ul>
-                        <li><a href="<%= request.getContextPath() %>/gestionUsuarios.jsp"</a>Administrar usuarios</li>
+                        <li><a href="<%= request.getContextPath() %>/Admin/gestionUsuarios.jsp"</a>Administrar usuarios</li>
                         <li><a href="<%= request.getContextPath() %>/CatalogoServlet?accion=admin"</a>Catalogo de productos</li>
-                        <li><a href="<%= request.getContextPath() %>/gestionPedidos.jsp"</a>Administrar pedidos</li>
-                        <li><a href="<%= request.getContextPath() %>/gestionarReseñas.jsp"</a>Administrar reseñas</li>
+                        <li><a href="<%= request.getContextPath() %>/Admin/gestionPedidos.jsp"</a>Administrar pedidos</li>
+                        <li><a href="<%= request.getContextPath() %>/Admin/gestionarReseñas.jsp"</a>Administrar reseñas</li>
                     </ul>
                 </section>
                 
