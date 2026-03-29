@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="es">
     <head>
         <link rel="stylesheet" href="./styles.css">
@@ -9,7 +10,7 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <div a href="PerfilUsuario.jsp">Perfil</div>
+                <a href="PerfilUsuario.jsp">Perfil</a>>
                 <div>Cerrar sesion</div>
             </header>
             <!--menu lateral-->
@@ -23,25 +24,30 @@
 
             </aside>
             <main class = "contenido">
-                <div class = "agregarProducto">
-                    <img src="Imagenes/taladro.webp">
-                    <input id="imagen" type="file" name="Imagen" >
-                    <label for="descripion">Nombre del producto</label>
-                    <input id="nombre" type="text" name="nombre" value="taladro 2000">
+            <div class="agregarProducto">
+                <form action="ProductosServlet" method="POST" >
+                    <input type="hidden" name="accion" value="agregar">
+                    <label for="imagen">Sube la imagen del producto</label>
+                    <input id="imagen" type="text" name="imagen">
+
+                    <label for="nombre">Nombre del producto</label>
+                    <input id="nombre" type="text" name="nombre">
+
                     <label for="descripion">Descripcion del producto</label>
-                    <input id="descripion" type="text" name="descripion" value="Taladro tipo martillo">
+                    <input id="descripion" type="text" name="descripcion">
+
                     <label for="Precio">Precio del producto</label>
-                    <input id="Precio" type="number" name="Precio" value="2000">
+                    <input id="Precio" type="number" name="precio">
+
                     <label for="Stock">Stock del producto</label>
-                    <input id="Stock" type="number" name="Stock" value="50">
-                    <a href="administracionCatalago.jsp">
-                        <button>Editar producto</button>
-                    </a> 
-                    
-                    <a href="administracionCatalago.jsp">
-                        <button>Cancelar</button>
-                    </a> 
-                </div>
+                    <input id="Stock" type="number" name="stock">
+
+                    <button type="submit">Añadir producto</button>
+
+                    <a href="administracionCatalago.jsp" class="btn-cancelar">Cancelar</a>
+
+                </form>
+            </div>
                 
             </main>
             <footer class = "footer">

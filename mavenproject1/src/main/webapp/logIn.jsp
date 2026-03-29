@@ -15,18 +15,18 @@
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
-                <a href="index.html">Inicio</a>
-                <a href="catalogo.html">Catalogo</a>
-                <a href="Carrito.html">Carrito</a>
-                <a href="Pedidos.html">Pedidos</a>
-                <a href="Administrador.html">Administrador</a>
-                <a href="logIn.html">Iniciar sesion</a>
+                <a href="index.jsp">Inicio</a>
+                <a href="catalogo.jsp">Catalogo</a>
+                <a href="Carrito.jsp">Carrito</a>
+                <a href="Pedidos.jsp">Pedidos</a>
+                <a href="Administrador.jsp">Administrador</a>
+                <a href="logIn.jsp">Iniciar sesion</a>
 
             </aside>
             <main class = "contenido">
                 <section class ="contenedorInicioSesion">
 
-                <form>
+                    <form action ="LogInServlet" method="post">
                     <br>
                     <div name ="titulo"">
                         <h3> Inicia Sesion</h3>
@@ -40,15 +40,15 @@
                     <br>
                     <div name ="Password">
                         <label for="txt_pssw">Password</label>
-                        <input id ="txt_pssw"  name="txt_pssw" type ="password" requeried>
+                        <input id ="txt_pssw"  name="txt_password" type ="password" requeried>
                     </div>
                     <br>
                     <button name ="Btn_Confirmar">
-                       <a href="index.html">Log In</a>   
+                       Log In
                         
                     </button>
                     <button name ="Btn_Registro">
-                        <a href="registro.html">Registro</a>                       
+                        <a href="registro.jsp">Registro</a>                       
                     </button>
                 </form>
         </section>

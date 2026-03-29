@@ -2,7 +2,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>hp</groupId>
-    <artifactId>mavenproject1</artifactId>
+    <artifactId>ZamaonLibre</artifactId>
     <version>0</version>
     <packaging>war</packaging>
     <name>ZamaonLibre</name>
@@ -19,7 +19,13 @@
             <version>${jakartaee}</version>
             <scope>provided</scope>
         </dependency>
+        <dependency>
+            <groupId>com.mysql</groupId>
+            <artifactId>mysql-connector-j</artifactId>
+            <version>9.4.0</version>
+        </dependency>
     </dependencies>
+    
     
     <build>
         <plugins>

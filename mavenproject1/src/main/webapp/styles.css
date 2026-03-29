@@ -284,11 +284,15 @@ body{
 }
 
 .agregarProducto{
-    display: flex;
-    flex-direction: column;
     font-size: medium;
     width: 50%;
     gap: 20px;
+}
+.agregarProducto form{
+    display: flex;
+    flex-direction: column;
+    gap : 10px
+    
 }
 
 .agregarProducto button{

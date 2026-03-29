@@ -10,17 +10,17 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <div a href="PerfilUsuario.html">Perfil</div>
+                <div a href="PerfilUsuario.jsp">Perfil</div>
                 <div>Cerrar sesion</div>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
-                <a href="index.html">Inicio</a>
-                <a href="catalogo.html">Catalogo</a>
-                <a href="Carrito.html">Carrito</a>
-                <a href="Pedidos.html">Pedidos</a>
-                <a href="Administrador.html">Administrador</a>
-                <a href="logIn.html">Iniciar sesion</a>
+                <a href="index.jsp">Inicio</a>
+                <a href="catalogo.jsp">Catalogo</a>
+                <a href="Carrito.jsp">Carrito</a>
+                <a href="Pedidos.jsp">Pedidos</a>
+                <a href="Administrador.jsp">Administrador</a>
+                <a href="logIn.jsp">Iniciar sesion</a>
 
             </aside>
             <main class = "contenido">
@@ -30,7 +30,7 @@
                     <label><input type="radio" name="Precio""">Menor</label>
                     <label><input type="radio" name="Precio""">Mayor</label>
                     <button>Filtrar</button>
-                    <a href="agregarProducto.html">
+                    <a href="agregarProducto.jsp">
                         <button>Agregar Producto</button>
                     </a>
                     
@@ -55,7 +55,7 @@
                         <td class ="precio">$2000</td>
                         <td class = "acciones">
                                 <button type="submit">
-                                    <a href="EditarProducto.html">Editar Producto</a>
+                                    <a href="EditarProducto.jsp">Editar Producto</a>
                                 </button>
                                 <button type="submit">
                                     Eliminar producto
@@ -69,7 +69,7 @@
                         <td class ="precio">$3500</td>
                         <td class = "acciones">
                            <button type="submit">
-                                    <a href="EditarProducto.html">Editar Producto</a>
+                                    <a href="EditarProducto.jsp">Editar Producto</a>
                                 </button>
                                  <button type="submit">
                                     Eliminar producto
@@ -84,7 +84,7 @@
                         <td class ="precio">$2000</td>
                         <td class = "acciones">
                                 <button type="submit">
-                                    <a href="EditarProducto.html">Editar Producto</a>
+                                    <a href="EditarProducto.jsp">Editar Producto</a>
                                 </button>
                                 <button type="submit">
                                     Eliminar producto

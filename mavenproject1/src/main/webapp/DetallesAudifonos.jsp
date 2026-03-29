@@ -10,17 +10,17 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <a href="PerfilUsuario.html">Perfil</a>
+                <a href="PerfilUsuario.jsp">Perfil</a>
                 <div>Cerrar sesion</div>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
-                <a href="index.html">Inicio</a>
-                <a href="catalogo.html">Catalogo</a>
-                <a href="Carrito.html">Carrito</a>
-                <a href="Pedidos.html">Pedidos</a>
-                <a href="Administrador.html">Administrador</a>
-                <a href="logIn.html">Iniciar sesion</a>
+                <a href="index.jsp">Inicio</a>
+                <a href="catalogo.jsp">Catalogo</a>
+                <a href="Carrito.jsp">Carrito</a>
+                <a href="Pedidos.jsp">Pedidos</a>
+                <a href="Administrador.jsp">Administrador</a>
+                <a href="logIn.jsp">Iniciar sesion</a>
 
             </aside>
             <main class = "contenido">
@@ -74,7 +74,7 @@
                     <p>Funciona bien pero el cable es corto.</p>
                 </div>
                 <div class ="BotonVolver">
-                    <a href="catalogo.html">
+                    <a href="catalogo.jsp">
                     <button type="button">Volver al catalogo</button>
                     </a>
                 </div>

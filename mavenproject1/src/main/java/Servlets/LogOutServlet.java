@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package ZamaonServlet;
+package Servlets;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -16,8 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author HP
  */
-@WebServlet(name = "ZamaonLibre", urlPatterns = {"/ZamaonLibre"})
-public class ZamaonLibre extends HttpServlet {
+@WebServlet(name = "LogOutServlet", urlPatterns = {"/LogOutServlet"})
+public class LogOutServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +36,10 @@ public class ZamaonLibre extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet ZamaonLibre</title>");
+            out.println("<title>Servlet LogOutServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet ZamaonLibre at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet LogOutServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,7 +57,8 @@ public class ZamaonLibre extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        request.getSession().invalidate();
+        response.sendRedirect("logIn.jsp");
     }
 
     /**

@@ -11,17 +11,17 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <a href="PerfilUsuario.html">Perfil</a>
+                <a href="PerfilUsuario.jsp">Perfil</a>
                 <div>Cerrar sesion</div>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
-                <a href="index.html">Inicio</a>
-                <a href="catalogo.html">Catalogo</a>
-                <a href="Carrito.html">Carrito</a>
-                <a href="Pedidos.html">Pedidos</a>
-                <a href="Administrador.html">Administrador</a>
-                <a href="logIn.html">Iniciar sesion</a>
+                <a href="index.jsp">Inicio</a>
+                <a href="catalogo.jsp">Catalogo</a>
+                <a href="Carrito.jsp">Carrito</a>
+                <a href="Pedidos.jsp">Pedidos</a>
+                <a href="Administrador.jsp">Administrador</a>
+                <a href="logIn.jsp">Iniciar sesion</a>
 
             </aside>
         <main class = "contenido">
@@ -50,10 +50,10 @@
                         <td>Taladro 2000</td>
                         <td class ="precio">$2000</td>
                         <td class = "acciones">
-                                <a href="DetallesTaladro.html">Detalles</a>
+                                <a href="DetallesTaladro.jsp">Detalles</a>
                                 <button>Agregar al Carrito</button>
                                 <button type="submit">
-                                    <a href="CreareseñasTaladro.html">Dejar Reseña</a>
+                                    <a href="CreareseñasTaladro.jsp">Dejar Reseña</a>
                                 </button>
                         </td>
                     </tr>
@@ -63,10 +63,10 @@
                         <td>Audifonos A50</td>
                         <td class ="precio">$3500</td>
                         <td class = "acciones">
-                                <a href="DetallesAudifonos.html">Detalles</a>
+                                <a href="DetallesAudifonos.jsp">Detalles</a>
                                 <button>Agregar al Carrito</button>
                                 <button type="submit">
-                                    <a href="CreareseñasAudifonos.html">Dejar Reseña</a>
+                                    <a href="CreareseñasAudifonos.jsp">Dejar Reseña</a>
                                 </button>
                         </td>
                     </tr>
@@ -77,10 +77,10 @@
                         <td>Taladro 2000</td>
                         <td class ="precio">$2000</td>
                         <td class = "acciones">
-                                <a href="DetallesTaladro.html">Detalles</a>
+                                <a href="DetallesTaladro.jsp">Detalles</a>
                                 <button>Agregar al Carrito</button>
                                 <button type="submit">
-                                    <a href="CreareseñasTaladro.html">Dejar Reseña</a>
+                                    <a href="CreareseñasTaladro.jsp">Dejar Reseña</a>
                                 </button>
                         </td>
                     </tr>

@@ -10,27 +10,27 @@
             <!--barra superior-->
             <header class = "header">
                 
-                <div a href="PerfilUsuario.html">Perfil</div>
+                <div a href="PerfilUsuario.jsp">Perfil</div>
                 <div>Cerrar sesion</div>
             </header>
             <!--menu lateral-->
             <aside class="sidebar">
-                <a href="index.html">Inicio</a>
-                <a href="catalogo.html">Catalogo</a>
-                <a href="Carrito.html">Carrito</a>
-                <a href="Pedidos.html">Pedidos</a>
-                <a href="Administrador.html">Administrador</a>
-                <a href="logIn.html">Iniciar sesion</a>
+                <a href="index.jsp">Inicio</a>
+                <a href="catalogo.jsp">Catalogo</a>
+                <a href="Carrito.jsp">Carrito</a>
+                <a href="Pedidos.jsp">Pedidos</a>
+                <a href="Administrador.jsp">Administrador</a>
+                <a href="logIn.jsp">Iniciar sesion</a>
 
             </aside>
             <main class = "contenido">
                 <section class="PanelAdmin">
                     <h1>Panel administrador</h1>
                     <ul>
-                        <li><a href="gestionUsuarios.html"</a>Administrar usuarios</li>
-                        <li><a href="administracionCatalago.html"</a>Catalogo de productos</li>
-                        <li><a href="gestionPedidos.html"</a>Administrar pedidos</li>
-                        <li><a href="gestionarReseÃ±as.html"</a>Administrar reseÃ±as</li>
+                        <li><a href="gestionUsuarios.jsp"</a>Administrar usuarios</li>
+                        <li><a href="administracionCatalogo.jsp"</a>Catalogo de productos</li>
+                        <li><a href="gestionPedidos.jsp"</a>Administrar pedidos</li>
+                        <li><a href="gestionarReseñas.jsp"</a>Administrar reseñas</li>
                     </ul>
                 </section>
                 
