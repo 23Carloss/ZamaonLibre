@@ -10,7 +10,7 @@ import java.util.List;
  *
  * @author HP
  */
-public interface Crud<T> {
+public interface ICRUD<T> {
     void crear(T obj);
     List<T> obtenerTodos();
     T obtenerPorId(int id);

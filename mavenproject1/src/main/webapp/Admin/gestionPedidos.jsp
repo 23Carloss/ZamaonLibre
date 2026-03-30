@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
+    <%@page import= "java.util.*,  Modelos.*,  DAO.PedidoDAO"%>
+    <%String admin = (String) session.getAttribute("admin");%>
     <head>
         <link rel="stylesheet" href="./styles.css">
         <meta name="viewport" content="width=device-width, initial-scale= 1.0">
@@ -19,7 +21,7 @@
                 <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=admin">Catalogo</a>
                 <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
                 <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
-                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=admin">Administrador</a>
+                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=panel">Administrador</a>
                 <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
             </aside>
@@ -28,37 +30,40 @@
                     <h1>Gestion de Pedido</h1>
                     <thead>
                         <tr>
-                            <th>Numero de Pedido</th>
-                            <th>Correo Electronico del cliente</th>
+                            <th>ID de Pedido</th>
+                            <th>ID del cliente</th>
                             <th>Estado del Pedido</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>434-2323-233</td>
+                        
+                        <%  List<Pedido> listaPedidos = (List<Pedido>)request.getSession().getAttribute("listaPedidos");
+                        
+                        for(Pedido p : listaPedidos){
+                            int Total = 0;
+                            for (Producto producto : p.getListaProductos()) {
+                                Total += producto.getPrecio();
+                            }
+                    
+                    %>
+                    <input type="hidden" name="accion" value="editar">    
+                    <tr>
+                            <td>ID pedido: <%= p.getId()%>.</td>
                             <td>
-                                carlos@outlook.es
+                                ID user: <%= p.getUsuarioId()%> 
                             </td>
-                            <td>Pendiente</td>
+                            <td><%= p.getEstado().toString() %></td>
                             <td>
-                                <button>Cambiar Estado</button>
+                                <a href="<%= request.getContextPath() %>/PedidosServlet?accion=cambiarEstado&id=<%= p.getId() %>">
+                                    <button type="button">Cambiar Estado</button>
+                                </a>
                             </td>
                         </tr>
-                        <tr>
-                            <td>433-2364-232</td>
-                            <td>
-                                carlos@outlook.es
-                            </td>
-                            <td>Entregado</td>
-                            <td>
-                                <button>Cambiar Estado</button>
-                            </td>
-                            
-                        </tr>
+                        <% }%>
                     </tbody>    
                 </table>
-
+                            
             </main>
             <footer class = "footer">
                 Aplicaciones Web - Unidad 2

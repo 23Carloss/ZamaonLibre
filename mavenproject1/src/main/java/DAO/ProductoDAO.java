@@ -5,7 +5,6 @@
 
 package DAO;
 
-import Interfaces.Crud;
 import Modelos.Producto;
 import conexionBD.ConexionBD;
 import java.sql.Connection;
@@ -13,12 +12,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import Interfaces.ICRUD;
 
 /**
  *
  * @author $Luis Carlos Manjarrez Gonzalez
  */
-public class ProductoDAO implements Crud<Producto>{
+public class ProductoDAO implements ICRUD<Producto>{
     Connection con;
     public ProductoDAO() {
         con = ConexionBD.getConnection();
@@ -119,6 +119,7 @@ public class ProductoDAO implements Crud<Producto>{
                     p.setDescripcion(rs.getString("descripcion"));
                
             }
+            return p;
         }catch(Exception e){
             System.out.println(e.getLocalizedMessage());
         }

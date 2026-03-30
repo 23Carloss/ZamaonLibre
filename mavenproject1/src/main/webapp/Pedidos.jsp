@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+    <%@page import= "java.util.*,  Modelos.*,  DAO.PedidoDAO"  
+            %>
+
+    
     <head>
         <link rel="stylesheet" href="./styles.css">
         <meta name="viewport" content="width=device-width, initial-scale= 1.0">
@@ -19,7 +23,7 @@
                 <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=user">Catalogo</a>
                 <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
                 <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
-                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=user.jsp">Administrador</a>
+                <a href="<%= request.getContextPath() %>/Admin/Administrador">Administrador</a>
                 <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
             </aside>
@@ -30,14 +34,24 @@
                     <tr>
                         <th>Aspectos</th>
                         <th>informacion</th>
+                        <th>Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
+                    <%  List<Pedido> listaPedidos = (List<Pedido>)request.getAttribute("pedidos");
+                        
+                        for(Pedido p : listaPedidos){
+                            int Total = 0;
+                            for (Producto producto : p.getListaProductos()) {
+                                Total += producto.getPrecio();
+                            }
+                    
+                    %>
                     <tr>
                         <td>
                             Numero pedido
                         </td>
-                        <td>434-2323-233</td>
+                        <td><%= p.getId() %></td>
                     </tr>
                     <tr>
                         <td>
@@ -56,7 +70,7 @@
                             Total a pagar
                         </td>
                         <td>
-                            <Strong>$9000</Strong>
+                            <Strong><%= Total %></Strong>
                         </td>
                     </tr>
                     <tr>
@@ -64,48 +78,21 @@
                             Estado del pedido
                         </td>
                         <td>
-                            Pendiente
+                            <%= p.getEstado().toString() %>
                         </td>
+                        <td>
+                            <a href= "<%= request.getContextPath() %>/PedidosServlet?accion=editar&id=<%= p.getId()%>" >
+                                <button type="submit">
+                                   Eliminar Resenhia
+                                </button>
+                                </a>
+                            </td>
                     </tr>
                     <tr class="Separador">
                         <td colspan="2"></td>
                     </tr>
-                    <tr>
-                        <td>Numero pedido</td>    
-                        
-                        <td>433-2364-232</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Direccion 
-                        </td>
-                        <td>Plaza sesamo 2016</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Fecha de compra 
-                        </td>
-                        <td>25/02/2026</td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Total a pagar
-                        </td>
-                        <td>
-                            <Strong>$440</Strong>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
-                            Estado del pedido
-                        </td>
-                        <td>
-                            Entregado
-                        </td>
-                    </tr>
-                    <tr class="Separador">
-                        <td colspan="2"></td>
-                    </tr>
+                    
+                   <%  }%>
                 </tbody>
             </table>
 

@@ -4,8 +4,10 @@
  */
 package Servlets;
 
-import DAO.AdministradorDAO;
-import Modelos.Administrador;
+import DAO.ProductoDAO;
+import DAO.ResenhasDAO;
+import Modelos.Producto;
+import Modelos.Resenha;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,13 +15,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
-@WebServlet(name = "AdministradorServlet", urlPatterns = {"/AdministradorServlet"})
-public class AdministradorServlet extends HttpServlet {
+@WebServlet(name = "ResenhasServlet", urlPatterns = {"/ResenhasServlet"})
+public class ResenhasServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -38,10 +41,10 @@ public class AdministradorServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet AdministradorServlet</title>");
+            out.println("<title>Servlet ResenhasServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>No tiene los permisos necesarios para ingresar a esta pagina</h1>");
+            out.println("<h1>Servlet ResenhasServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -60,12 +63,22 @@ public class AdministradorServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
-        if("panel".equals(accion)){
-            request.getRequestDispatcher("/Admin/Administrador.jsp").forward(request, response);
-        }
-        else if("logout".equals(accion)){
-            request.getSession().invalidate();
-            response.sendRedirect("logIn.jsp");
+        
+        ResenhasDAO dao = new ResenhasDAO();
+        ProductoDAO productosDAO = new  ProductoDAO();
+        List<Producto> listaProductos = productosDAO.obtenerTodos();
+        List<Resenha> lista = dao.obtenerTodos();
+        request.setAttribute("resenhas", lista);
+        request.setAttribute("productos", listaProductos);
+        
+        System.out.println(lista.toString());
+        if("admin".equals(accion)){
+            request.getRequestDispatcher("/Admin/gestionarResenhas.jsp").forward(request, response);
+
+        }else if("eliminar".equals(accion)){
+            String idString = request.getParameter("id");
+            dao.eliminarPorId(Integer.parseInt(idString));
+            request.getRequestDispatcher("/Admin/gestionarResenhas.jsp").forward(request, response);
         }
     }
 
@@ -82,23 +95,10 @@ public class AdministradorServlet extends HttpServlet {
             throws ServletException, IOException {
         String accion = request.getParameter("accion");
         
-        if("logIn".equals(accion)){
-            String CorreoE = request.getParameter("txt_correo");
-            String password =  request.getParameter("txt_password");
-            AdministradorDAO dao = new AdministradorDAO();
-            
-            if(dao.iniciarSesion(CorreoE, password)){
-                Administrador admin =dao.buscarPorCorreo(CorreoE);
-                request.getSession().setAttribute("admin", admin);
-                request.getRequestDispatcher("/Admin/Administrador.jsp").forward(request, response);
-                
-            }
-            else{
-                request.getRequestDispatcher("/logIn.jsp").forward(request, response);
-            }
+        if("admin".equals(accion)){
+            request.getRequestDispatcher("/Admin/gestionarResenhas.jsp").forward(request, response);
+
         }
-        
-        
     }
 
     /**

@@ -4,6 +4,9 @@
  */
 package Servlets;
 
+import DAO.PedidoDAO;
+import Modelos.EstadosEnvio;
+import Modelos.Pedido;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -11,13 +14,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  *
  * @author HP
  */
-@WebServlet(name = "LogOutServlet", urlPatterns = {"/LogOutServlet"})
-public class LogOutServlet extends HttpServlet {
+@WebServlet(name = "PedidosServlet", urlPatterns = {"/PedidosServlet"})
+public class PedidosServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,10 +40,10 @@ public class LogOutServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LogOutServlet</title>");
+            out.println("<title>Servlet PedidosServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LogOutServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet PedidosServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -57,8 +61,20 @@ public class LogOutServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getSession().invalidate();
-        response.sendRedirect("logIn.jsp");
+            PedidoDAO dao = new PedidoDAO();
+            List<Pedido> listaP = dao.obtenerTodos();
+            request.getSession().setAttribute("listaPedidos", listaP);
+            String accion = request.getParameter("accion");
+            if(accion.equals("admin")){
+                request.getRequestDispatcher("/Admin/gestionPedidos.jsp").forward(request, response);
+            }
+            else if("cambiarEstado".equals(accion)){
+                int id = Integer.parseInt(request.getParameter("id"));
+                Pedido pedido = dao.obtenerPorId(id);
+                request.setAttribute("pedido", pedido);
+                request.getRequestDispatcher("/Admin/cambiarEstado.jsp").forward(request, response);
+            }
+            
     }
 
     /**
@@ -72,7 +88,15 @@ public class LogOutServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+        
+        String accion = request.getParameter("accion");
+        PedidoDAO dao = new PedidoDAO();
+        if("cambiarEstado".equals(accion)){
+            int id = Integer.parseInt(request.getParameter("id"));
+            EstadosEnvio nuevoEstado = EstadosEnvio.valueOf(request.getParameter("estado"));
+            dao.actualizarEstado(id, nuevoEstado);
+            response.sendRedirect(request.getContextPath() + "/PedidosServlet?accion=admin");
+        }
     }
 
     /**

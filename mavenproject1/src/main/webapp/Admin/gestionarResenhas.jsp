@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
+<%@page import= "java.util.*,  Modelos.*"  %>
+<% HttpSession sesion = request.getSession(); 
+           String admin = (String) sesion.getAttribute("admin");
+%>
     <head>
         <link rel="stylesheet" href="./styles.css">
         <meta name="viewport" content="width=device-width, initial-scale= 1.0">
@@ -19,48 +23,53 @@
                 <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=admin">Catalogo</a>
                 <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
                 <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
-                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=admin">Administrador</a>
+                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=panel">Administrador</a>
                 <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
             </aside>
             <main class = "contenido">
                 <table  class = "Catalogo">
-                    <h1>Gestion de reseñas</h1>
+                    <h1>Gestion de rese�as</h1>
                     <thead>
                         <tr>
                             <th>Producto</th>
                             <th>Cliente</th>
                             <th>Calificacion</th>
                             <th>Comentario</th>
-                            <th>fecha publicacion</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
+                <% 
+                        List<Resenha> lista = (List<Resenha>) request.getAttribute("resenhas");
+                        List<Producto> listaProductos = (List<Producto>) request.getAttribute("productos");
+                        String URLimagenProducto = "";
+                %>
+                    
+                     <% for(Resenha r: lista){
+                            for(Producto p: listaProductos){
+                                if(r.getProductoId() == p.getId()){
+                                    URLimagenProducto = p.getImagen();
+                                }
+                         
+                     %>
                         <tr>
-                            <td><img src="Imagenes/images.jfif"></td>
+                            <td><img src="<%= URLimagenProducto %>"></td>
                             <td>
-                                Ana López
+                                <%= r.getAutor() %>
                             </td>
-                            <td>3 Estrellas</td>
-                            <td>Funciona bien pero el cable es corto.</td>
-                            <td>20/05/2025</td>
+                            <td> <%= r.getCalificacion() %> Estrellas</td>
+                            <td> <%= r.getComentario()%></td>
                             <td>
-                                <button>Eliminar Reseña</button>
+                                <a href= "<%= request.getContextPath() %>/ResenhasServlet?accion=eliminar&id=<%= r.getId()%>" >
+                                    <button type="submit">
+                                   Eliminar Resenhia
+                                </button>
+                                </a>
                             </td>
-                        </tr>
-                        <tr>
-                            <td><img src="Imagenes/taladro.webp"></td>
-                            <td>
-                                Juan Pérez
-                            </td>
-                            <td>5 Estrellas</td>
-                            <td>Muy buen producto, lo recomiendo.</td>
-                            <td>10/09/2024</td>
-                            <td>
-                                <button>Eliminar Reseña</button>
-                            </td>
-                        </tr>
+                        </tr>  
+                        <% } %> 
+                       <% } %>  
                     </tbody>
                 </table>
             </main>

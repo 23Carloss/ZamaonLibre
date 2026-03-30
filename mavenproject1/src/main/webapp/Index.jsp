@@ -26,7 +26,7 @@
                 <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=user">Catalogo</a>
                 <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
                 <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
-                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=user.jsp">Administrador</a>
+                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=user">Administrador</a>
                 <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
             </aside>

@@ -25,7 +25,7 @@
                 <a href="<%= request.getContextPath() %>/CatalogoServlet?accion=admin">Catalogo</a>
                 <a href="<%= request.getContextPath() %>/Carrito.jsp">Carrito</a>
                 <a href="<%= request.getContextPath() %>/Pedidos.jsp">Pedidos</a>
-                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=admin">Administrador</a>
+                <a href="<%= request.getContextPath() %>/AdministradorServlet?accion=panel">Administrador</a>
                 <a href="<%= request.getContextPath() %>/logIn.jsp">Iniciar sesion</a>
 
 
@@ -36,7 +36,7 @@
                         <input type="hidden" name="accion" value="editar">
                         <input type="hidden" name="id" value="<%= producto.getId() %>">
                     <label for="imagen">URL de la imagen del producto</label>
-                    <input id="imagen" type="text" name= imagen value <%= producto.getImagen() %>>
+                    <input id="imagen" type="text" name= imagen value=<%= producto.getImagen() %> >
                     <label for="nombre">Nombre del producto</label>
                     <input id="nombre" type="text" name="nombre" value= <%= producto.getNombre() %>>
                     <label for="descripcion">Descripcion del producto</label>
@@ -47,7 +47,7 @@
                     <input id="stock" type="number" name="stock" value=<%= producto.getStock()%>>
                     
                     <button type="submit">Guardar cambios</button>
-                    <button type="button" onclick="location.href= '<%= request.getContextPath() %>/Admin/administracionCatalago.jsp'">Cancelar</button>
+                    <button type="button" onclick="location.href= '<%= request.getContextPath() %>/CatalogoServlet?accion=admin'">Cancelar</button>
 
                     </form>                 
                 </div>

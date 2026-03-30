@@ -66,6 +66,16 @@ body{
     padding: 10px;
     text-align: center;
 }
+.Catalogo td img {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+}
+.Catalogo td:first-child {
+    max-width: 100px;
+    
+}
+
 .Catalogo button{
     cursor:pointer;
     background: rgb(53, 124, 172);

@@ -5,8 +5,6 @@
 
 package Modelos;
 
-import javax.swing.Icon;
-
 /**
  *
  * @author $Luis Carlos Manjarrez Gonzalez

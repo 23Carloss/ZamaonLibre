@@ -4,7 +4,6 @@
  */
 package Servlets;
 
-import DAO.AdministradorDAO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -17,8 +16,8 @@ import jakarta.servlet.http.HttpServletResponse;
  *
  * @author HP
  */
-@WebServlet(name = "LogInServlet", urlPatterns = {"/LogInServlet"})
-public class LogInServlet extends HttpServlet {
+@WebServlet(name = "UsuariosServlet", urlPatterns = {"/UsuariosServlet"})
+public class UsuariosServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,10 +36,10 @@ public class LogInServlet extends HttpServlet {
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet LogInServlet</title>");
+            out.println("<title>Servlet NewServlet</title>");
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet LogInServlet at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
         }
@@ -72,18 +71,7 @@ public class LogInServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
-        String CorreoE = request.getParameter("txt_correo");
-        String password =  request.getParameter("txt_password");
-        AdministradorDAO dao = new AdministradorDAO();
-        
-        if(dao.iniciarSesion(CorreoE, password)){
-            request.getSession().setAttribute("admin", CorreoE);
-            response.sendRedirect("/Admin/Administrador.jsp");
-        }
-        else{
-            response.sendRedirect("logIn.jsp");
-        }
+        processRequest(request, response);
     }
 
     /**
