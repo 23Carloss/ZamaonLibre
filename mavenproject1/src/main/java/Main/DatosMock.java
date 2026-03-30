@@ -18,7 +18,7 @@ public class DatosMock {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        try (Connection con = ConexionBD.getConnection()) {
+        try (Connection con = ConexionBD.getConnection()) { // poner su root y psswd en la clase ConexionBD profe
             System.out.println("Conexion exitosa");
             insertarProductos(con);
             insertarUsuarios(con);
